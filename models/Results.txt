@@ -1,0 +1,70 @@
+Epoch 00032: early stopping
+test_src: 2428
+X_test 2428
+preds_test 2428
+lw	PART
+kn	V
+TB	TB
+t	PRON
+Astny	V
+TB	TB
+t	PRON
+w	CONJ
+TB	TB
+bS	V
+TB	TB
+yt	PRON
+fy	PREP
+Eyn	NOUN
+TB	TB
+h	PRON
+Axr	ADJ
+mr	NOUN
+TB	TB
+p	NSUFF
+.	PUNC
+.	PUNC
+jAyz	ADJ
+kn	V
+TB	TB
+t	PRON
+fhm	V
+TB	TB
+t	PRON
+An	PART
+TB	TB
+2428/2428 [==============================] - 4s
+Test Score: 0.956754531852
+2198/2198 [==============================] - 3s
+Dev Score: 0.948134659528
+
+/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1428: UserWarning: labels size, 19, does not match size of target_names, 23
+  .format(len(labels), len(target_names))
+/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+             precision    recall  f1-score   support
+
+       NOUN       0.88      0.92      0.90       339
+        ADV       0.59      0.77      0.67        13
+    MENTION       0.00      0.00      0.00         2
+    RETWEET       1.00      0.75      0.86         8
+    FOREIGN       0.80      0.80      0.80        10
+        NUM       0.98      0.95      0.96        43
+       EMOT       1.00      1.00      1.00        20
+  PROG_PART       1.00      1.00      1.00        16
+   NEG_PART       1.00      0.97      0.98        61
+   FUT_PART       1.00      1.00      1.00       561
+       CONJ       0.94      0.94      0.94       108
+         TB       0.95      0.87      0.91       199
+       HASH       0.96      0.99      0.98       131
+      NSUFF       0.79      0.81      0.80       102
+          V       0.97      0.99      0.98       108
+       PUNC       1.00      1.00      1.00        90
+        ADJ       0.96      0.94      0.95       216
+        URL       0.78      0.88      0.82         8
+       PREP       0.98      0.96      0.97       163
+
+avg / total       0.95      0.95      0.95      2198
+
+0.8649045521292217
+
