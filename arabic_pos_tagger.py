@@ -297,17 +297,18 @@ def main():
     #file related args
     parser.add_argument("-m", "--model-dir",   default="./models/", help="directory to save the best models")
 
-    parser.add_argument("-t", "--train-set",   default="./data/EG.txt-train.txt", help="maximul sentence length (for fixed size input)") # input size
-    parser.add_argument("-v", "--dev-set",     default="./data/EG.txt-dev.txt", help="source vocabulary size") # emb matrix row size
-    parser.add_argument("-s", "--test-set",    default="./data/EG.txt-test.txt", help="target vocabulary size") # emb matrix row size
+    parser.add_argument("-t", "--train-set",   default="./data/EG.txt-train.txt", help="maximul sentence length (for fixed size input)") # 
+    parser.add_argument("-v", "--dev-set",     default="./data/EG.txt-dev.txt", help="source vocabulary size") # 
+    parser.add_argument("-s", "--test-set",    default="./data/EG.txt-test.txt", help="target vocabulary size") # 
 
-    parser.add_argument("-e", "--decode",    default="./data/EG.txt-test.sample-eng.txt", help="decode a sample segmened file") # emb matrix row size
+    parser.add_argument("-i", "--input",    default="./data/EG.txt-test.sample-eng.txt", help="a sample input segmened file") # 
+    parser.add_argument("-o", "--output",    default="./data/EG.txt-test.sample-eng.txt.out", help="POS output") # 
 
     # network related
         #input
-    parser.add_argument("-z", "--emb-size",    default=300, type=int, help="dimension of embedding") # emb matrix col size
-    parser.add_argument("-w", "--window-size", default=10, type=int, help="dimension of embedding") # emb matrix col size
-    parser.add_argument("-d", "--vocab-emb",   default="./data/segmented-vectors", help="vocabulatry pre-trained embeddings") # emb matrix col size
+    parser.add_argument("-e", "--emb-size",    default=300, type=int, help="dimension of embedding") # emb matrix col size
+    parser.add_argument("-w", "--window-size", default=10, type=int, help="dimension of embedding") #
+    parser.add_argument("-d", "--vocab-emb",   default="./data/segmented-vectors", help="vocabulatry pre-trained embeddings") #
     parser.add_argument("-r", "--final_layer", default="lstm", help="Final optimization layer 'crf' or 'lstm'") 
 
     #learning related
@@ -317,7 +318,7 @@ def main():
 
     #others
     parser.add_argument("-V", "--verbose-level",default=1, type=int, help="verbosity level (0 < 1 < 2)")
-    parser.add_argument("-o", "--showGraph",    default=False,   help="show precision and accuracy graphs") # size of the hidden layer
+    parser.add_argument("-g", "--showGraph",    default=False,   help="show precision and accuracy graphs") # 
     parser.add_argument("-l", "--train-model",  default=False, type=lambda x: (str(x).lower() == 'true'),  help="Train the model, default False")
 
     
@@ -381,7 +382,7 @@ def main():
         dev_sentences = readFile(args.dev_set)
         test_sentences = readFile(args.test_set)
     else:
-        test_sentences = readTestFile(args.test_set)
+        test_sentences = readTestFile(args.input)
 
     test_src = []
     test_trg = []
@@ -490,10 +491,14 @@ def main():
     # print("test_src:",len(test_src))
     # print("X_test", len(X_test))
     # print("preds_test",len(preds_test))
+    if(args.output !=''):
+    	fout = open(args.output , 'w')
+    else:
+    	fout = sys.stdout
 
     for w,p in zip(test_src,preds_test):
         #print("W:",w," P:",p)
-        print(w+'\t'+(idx2Label[p] if(p<len(idx2Label)) else 'UNKNOWN')) 
+        fout.write(w+'\t'+(idx2Label[p] if(p<len(idx2Label)) else 'UNKNOWN')+'\n') 
 
 
     #print(score_test[1])
