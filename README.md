@@ -5,12 +5,12 @@ Arabic Dialects POS Tagger implemented using Keras/BiLSTM/ChainCRF.
 
 # Requirements
 
-This segmenter requires the following packages:
+The tagger requires the following packages:
 
 - Python 3 (python2.7 should work with some minor changes)
     
 - `tensorflow` version 0.9 or later: https://www.tensorflow.org
-- `keras` version 1.2.2 or later: http://keras.io
+- `keras` version 2.1.4 or later: http://keras.io
 
 ## Installation
 
@@ -38,9 +38,9 @@ python arabic_pos_tagger.py -h
 
 ## Publications
 
-Randah Alharbi, Walid Magdy, Kareem Darwish, Ahmed Abdelali and Hamdy Mubarak. (2018) [Part-of-Speech Tagging for Arabic Gulf Dialect Using Bi-LSTM](http://www.lrec-conf.org/proceedings/lrec2018/pdf/483.pdf). Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018). May 7-12, 2018. Miyazaki, Japan. Pages 3925-3932.
+Randah Alharbi, Walid Magdy, Kareem Darwish, Ahmed Abdelali and Hamdy Mubarak. (2018) [Part-of-Speech Tagging for Arabic Gulf Dialect Using Bi-LSTM](http://www.lrec-conf.org/proceedings/lrec2018/summaries/483.html). Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018). May 7-12, 2018. Miyazaki, Japan. Pages 3925-3932.
 
-Kareem Darwish, Hamdy Mubarak, Ahmed Abdelali, Mohamed Eldesouki, Younes Samih, Randah Alharbi, Mohammed Attia, Walid Magdy and Laura Kallmeyer. (2018) [Multi-Dialect Arabic POS Tagging: A CRF Approach](http://www.lrec-conf.org/proceedings/lrec2018/pdf/562.pdf). Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018). May 7-12, 2018. Miyazaki, Japan. Pages 93-98.
+Kareem Darwish, Hamdy Mubarak, Ahmed Abdelali, Mohamed Eldesouki, Younes Samih, Randah Alharbi, Mohammed Attia, Walid Magdy and Laura Kallmeyer. (2018) [Multi-Dialect Arabic POS Tagging: A CRF Approach](http://www.lrec-conf.org/proceedings/lrec2018/summaries/562.html). Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018). May 7-12, 2018. Miyazaki, Japan. Pages 93-98.
 
 
 
