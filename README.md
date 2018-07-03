@@ -28,7 +28,10 @@ Dialectal Arabic POS Tagger reads an input Arabic text file and produces the POS
 ```
 python arabic_pos_tagger.py -i [in-file] -o [out-file] 
 ```
-
+using a specific model:
+```
+python arabic_pos_tagger.py -m [model-dir] -i [in-file] -o [out-file] 
+```
 For more details see:
 
 ``` 
