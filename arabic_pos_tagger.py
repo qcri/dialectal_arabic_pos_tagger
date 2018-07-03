@@ -111,10 +111,14 @@ def readTestFile(path):
                     sentence = []
             else:
                 word = word.split('+')
+                nw = 0
                 for w in word:
                     sentence.append(w)
                     nsegm += 1
-                sentence.append('TB')
+                    nw += 1
+                    if(nw < len(word)):
+                        sentence.append('TB')
+                sentence.append('WB')
         if len(sentence) > 0:
             if 'DOCSTART' not in sentence[0]:
                 sentences.append(sentence)
@@ -302,7 +306,7 @@ def main():
     parser.add_argument("-s", "--test-set",    default="./data/EG.txt-test.txt", help="target vocabulary size") # 
 
     parser.add_argument("-i", "--input",    default="./data/EG.txt-test.sample-eng.txt", help="a sample input segmened file") # 
-    parser.add_argument("-o", "--output",    default="./data/EG.txt-test.sample-eng.txt.out", help="POS output") # 
+    parser.add_argument("-o", "--output",    default="", help="POS output") # 
 
     # network related
         #input
@@ -459,8 +463,9 @@ def main():
         model.compile(loss='categorical_crossentropy', optimizer=args.learning_algorithm, metrics=['accuracy'])       
 
     model.summary()
-    
 
+    if(os.path.isfile(args.model_dir+'/keras_weights.hdf5')):
+    	model.load_weights(args.model_dir+'/keras_weights.hdf5')
 
     if(args.train_model == True):
         early_stopping = EarlyStopping(patience=5, verbose=1)
